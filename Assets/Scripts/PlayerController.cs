@@ -1,40 +1,38 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using EasyAR;
 
 public class PlayerController : MonoBehaviour
 {
     private Animator anim;
-    public float speed = 2;
     private Rigidbody rb;
     public bool isMoving = true;
-    private Vector3 input;
 
     List<GameObject> listOfTargets = new List<GameObject>();
     private GameObject currentTarget;
-    private GameObject target1;
-    private GameObject target2;
-    private GameObject target3;
+    private int targetIndex = 0;
 
     void Start()
     {
 
         //anim = GetComponent<Animator>();
         rb = gameObject.GetComponent<Rigidbody>();
-        target1 = GameObject.Find("Target1");
-        target2 = GameObject.Find("Target2");
-        target3 = GameObject.Find("Target3");
+        //target1 = GameObject.Find("Target1");
+        //target2 = GameObject.Find("Target2");
+        //target3 = GameObject.Find("Target3");
 
-        currentTarget = target1;
         isMoving = true;
 
         //gameObject.SetActive(false);
         // only start if all are ready
         ////listOfTargets.Add(GameObject.Find("TargetTree").transform.Find("Palm_Tree").gameObject);
-        //listOfTargets.Add(GameObject.Find("Target1"));
-        //listOfTargets.Add(GameObject.Find("Target2"));
-        //listOfTargets.Add(GameObject.Find("Target3"));
-        //currentTarget = listOfTargets[0];
+        listOfTargets.Add(GameObject.Find("Target1"));
+        listOfTargets.Add(GameObject.Find("Target2"));
+        listOfTargets.Add(GameObject.Find("Target3"));
+
+
+        currentTarget = listOfTargets[targetIndex];
         //anim.SetTrigger("StartWalking");
 
     }
@@ -84,27 +82,21 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.Equals(target1))
+        if (isMoving && listOfTargets[targetIndex].Equals(collision.gameObject))
         {
-            currentTarget = target2;
+            targetIndex++;
+            Debug.Log(listOfTargets.Count);
+
+            if (targetIndex < listOfTargets.Count)
+            {
+                gameObject.GetComponent<MeshRenderer>().material.color = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
+                currentTarget = listOfTargets[targetIndex];
+            }
+            else
+            {
+                gameObject.GetComponent<MeshRenderer>().material.color = Color.red;
+                isMoving = false;
+            }
         }
-
-        if (collision.gameObject.Equals(target2))
-        {
-            currentTarget = target3;
-        }
-
-        if (collision.gameObject.Equals(target3))
-        {
-            gameObject.GetComponent<MeshRenderer>().material.color = Color.green;
-            isMoving = false;
-        }
-
-
-
-        //currentTargetIndex++;
-        //currentTarget = listOfTargets[currentTargetIndex];
-        //Vector3 sizeIncrease = new Vector3(0, 50, 0);
-        //rb.transform.localScale += sizeIncrease;
     }
 }

@@ -1,4 +1,0 @@
-#Tue Feb 05 18:45:42 MST 2019
-base.0=/Users/max/dev/Unity/New Unity Project/Temp/gradleOut/build/intermediates/transforms/dexMerger/release/0
-path.0=classes.dex
-renamed.0=classes.dex

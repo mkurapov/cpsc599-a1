@@ -76,6 +76,9 @@
     <Compile Include="Assets\EasyAR\Scripts\RecorderBehaviour.cs" />
     <Compile Include="Assets\EasyAR\Scripts\RenderCameraBehaviour.cs" />
     <Compile Include="Assets\EasyAR\Scripts\VideoPlayerBehaviour.cs" />
+    <Compile Include="Assets\JSLizards\Iguana\Scripts\IguanaCameraScript.cs" />
+    <Compile Include="Assets\JSLizards\Iguana\Scripts\IguanaCharacter.cs" />
+    <Compile Include="Assets\JSLizards\Iguana\Scripts\IguanaUserController.cs" />
     <Compile Include="Assets\Scripts\LabImageBehaviour.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Sport Car - 3D model\Scripts\CameraScript.cs" />
@@ -83,6 +86,7 @@
     <None Include="Assets\EasyAR\doc\readme.en.txt" />
     <None Include="Assets\EasyAR\doc\changelog.en.txt" />
     <None Include="Assets\EasyAR\doc\readme.cn.txt" />
+    <None Include="Assets\JSLizards\Iguana\Readme.txt" />
     <None Include="Assets\EasyAR\Resources\Shaders\TransparentVideo.shader" />
     <None Include="Assets\EasyAR\doc\changelog.cn.txt" />
     <None Include="Assets\EasyAR\Resources\Shaders\RealityPlane.shader" />
