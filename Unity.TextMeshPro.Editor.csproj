@@ -272,14 +272,17 @@
     <Reference Include="UnityEditor.Graphs">
       <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEditor.Graphs.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEditor.Android.Extensions">
-      <HintPath>/Applications/Unity/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor.OSXStandalone.Extensions">
       <HintPath>/Applications/Unity/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>/Applications/Visual Studio.app/Contents/Resources/lib/monodevelop/AddIns/MonoDevelop.Unity/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
+    </Reference>
+    <Reference Include="EasyAR.Unity">
+      <HintPath>Assets/EasyAR/Scripts/EasyAR.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="EasyAR.Unity.Editor">
+      <HintPath>Assets/EasyAR/Scripts/Editor/EasyAR.Unity.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.Advertisements">
       <HintPath>/Users/max/dev/Unity/New Unity Project/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll</HintPath>
@@ -295,12 +298,6 @@
     </Reference>
     <Reference Include="UnityEditor.Purchasing">
       <HintPath>/Users/max/dev/Unity/New Unity Project/Library/PackageCache/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll</HintPath>
-    </Reference>
-    <Reference Include="EasyAR.Unity.Editor">
-      <HintPath>Assets/EasyAR/Scripts/Editor/EasyAR.Unity.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="EasyAR.Unity">
-      <HintPath>Assets/EasyAR/Scripts/EasyAR.Unity.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>

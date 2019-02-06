@@ -245,6 +245,9 @@
     <Reference Include="UnityEngine.SpatialTracking">
       <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
+    <Reference Include="EasyAR.Unity">
+      <HintPath>Assets/EasyAR/Scripts/EasyAR.Unity.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Analytics.Tracker">
       <HintPath>/Users/max/dev/Unity/New Unity Project/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
@@ -253,9 +256,6 @@
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
       <HintPath>/Users/max/dev/Unity/New Unity Project/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
-    </Reference>
-    <Reference Include="EasyAR.Unity">
-      <HintPath>Assets/EasyAR/Scripts/EasyAR.Unity.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>/Applications/Unity/Unity.app/Contents/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
@@ -642,6 +642,8 @@
     <Compile Include="Assets\EasyAR\Scripts\RecorderBehaviour.cs" />
     <Compile Include="Assets\EasyAR\Scripts\RenderCameraBehaviour.cs" />
     <Compile Include="Assets\EasyAR\Scripts\VideoPlayerBehaviour.cs" />
+    <Compile Include="Assets\Scripts\LabImageBehaviour.cs" />
+    <Compile Include="Assets\Scripts\PlayerController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\EasyAR\Resources\Shaders\RealityPlane.shader" />

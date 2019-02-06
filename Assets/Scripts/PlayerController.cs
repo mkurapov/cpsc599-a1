@@ -8,95 +8,53 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
     private Rigidbody rb;
     public bool isMoving = true;
+    private int speed = 1;
 
-    List<GameObject> listOfTargets = new List<GameObject>();
     private GameObject currentTarget;
     private int targetIndex = 0;
 
     void Start()
     {
-
-        //anim = GetComponent<Animator>();
         rb = gameObject.GetComponent<Rigidbody>();
-        //target1 = GameObject.Find("Target1");
-        //target2 = GameObject.Find("Target2");
-        //target3 = GameObject.Find("Target3");
-
-        isMoving = true;
-
-        //gameObject.SetActive(false);
-        // only start if all are ready
-        ////listOfTargets.Add(GameObject.Find("TargetTree").transform.Find("Palm_Tree").gameObject);
-        listOfTargets.Add(GameObject.Find("Target1"));
-        listOfTargets.Add(GameObject.Find("Target2"));
-        listOfTargets.Add(GameObject.Find("Target3"));
-
-
-        currentTarget = listOfTargets[targetIndex];
-        //anim.SetTrigger("StartWalking");
-
     }
 
     void Update()
     {
-        if (currentTarget && isMoving)
+        // this is dirty, but Easy AR needs it on each update:
+        var target1 = GameObject.FindGameObjectWithTag("Target1");
+        var target2 = GameObject.FindGameObjectWithTag("Target2");
+        var target3 = GameObject.FindGameObjectWithTag("Target3");
+
+        List<GameObject> targets = new List<GameObject> { target1, target2, target3 };
+        var isSeeingAllTargets = targets.TrueForAll(t => t && t.activeSelf);
+
+        if (isSeeingAllTargets && isMoving)
         {
-            Vector3 direction = currentTarget.transform.position - transform.position;
-            rb.AddForce(direction);
+            currentTarget = targets[targetIndex];
+            transform.LookAt(currentTarget.transform);
+
+            var hasArrived = Vector3.Distance(transform.position, currentTarget.transform.position) < 0.01f;
+            if (hasArrived)
+            {
+                targetIndex++;
+                if (targetIndex == targets.Count)
+                {
+                    isMoving = false;
+                }
+            }
+
+            if (isMoving) { Move(); }
         }
-
-        //if (listOfTargets.TrueForAll(obj => obj.activeSelf))
-        //{
-        //    gameObject.SetActive(true);
-        //    //Vector3 direction = currentTarget.transform.position - transform.position;
-        //    //rb.AddForce(direction);
-        //    //Debug.Log("active");
-        //}
-
-        //if (currentTarget)
-        //{
-        //    Debug.Log("current Target");
-        //}
-
-        //if (listOfTargets.TrueForAll(obj => obj.activeInHierarchy))
-        //{
-        //    gameObject.SetActive(true);
-        //}
-        //Vector3 direction = currentTarget.transform.position - transform.position;
-        //rb.AddForce(direction);
-        //The code for moving up/down and left/right
-        //if (currentTarget)
-        //{
-        //anim.SetTrigger("StartWalking");
-        //    var target = GameObject.Find("Target");
-        //Vector3 relativePos = new Vector3(1, 1, 1);
-        ////    transform.LookAt(target.transform);
-        ////    //rb.AddRelativeForce(Vector3.forward * speed, ForceMode.Force);
-        //rb.velocity = relativePos;
-        //rb.AddForce(Vector3.forward * speed, ForceMode.Force);
-        //    Debug.Log(relativePos);
-        //    //transform.position = Vector3.Lerp(transform.position, currentTarget.transform.position, Time.deltaTime);
-        //}
-
     }
 
-    void OnCollisionEnter(Collision collision)
+    void Move()
     {
-        if (isMoving && listOfTargets[targetIndex].Equals(collision.gameObject))
-        {
-            targetIndex++;
-            Debug.Log(listOfTargets.Count);
+        transform.position = Vector3.MoveTowards(transform.position, currentTarget.transform.position, speed * Time.deltaTime);
+    }
 
-            if (targetIndex < listOfTargets.Count)
-            {
-                gameObject.GetComponent<MeshRenderer>().material.color = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
-                currentTarget = listOfTargets[targetIndex];
-            }
-            else
-            {
-                gameObject.GetComponent<MeshRenderer>().material.color = Color.red;
-                isMoving = false;
-            }
-        }
+    void OnTriggerEnter(Collider collider)
+    {
+        // can do anim. here, but this was more fun:
+        gameObject.GetComponent<AudioSource>().Play();
     }
 }

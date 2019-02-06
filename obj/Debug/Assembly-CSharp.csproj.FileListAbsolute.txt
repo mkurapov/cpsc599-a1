@@ -358,7 +358,3 @@
 /Users/max/dev/Unity/New Unity Project/obj/Debug/Assembly-CSharp.csproj.CopyComplete
 /Users/max/dev/Unity/New Unity Project/obj/Debug/Assembly-CSharp.dll
 /Users/max/dev/Unity/New Unity Project/obj/Debug/Assembly-CSharp.pdb
-/Users/max/dev/Unity/New Unity Project/Temp/bin/Debug/Boo.Lang.dll
-/Users/max/dev/Unity/New Unity Project/Temp/bin/Debug/UnityEditor.UI.dll
-/Users/max/dev/Unity/New Unity Project/Temp/bin/Debug/UnityEditor.UI.dll.mdb
-/Users/max/dev/Unity/New Unity Project/Temp/bin/Debug/UnityEditor.UI.xml
